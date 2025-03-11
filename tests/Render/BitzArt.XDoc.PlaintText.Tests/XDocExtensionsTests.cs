@@ -1,6 +1,6 @@
+using BitzArt.XDoc.PlainText;
 using TestAssembly.A;
 using TestAssembly.B;
-using Xdoc.Renderer.PlaintText;
 
 namespace BitzArt.XDoc.PlaintText.Tests;
 

@@ -1,5 +1,4 @@
 using System.Xml;
-using Xdoc.Renderer.PlainText;
 
 namespace BitzArt.XDoc.PlaintText.Tests;
 

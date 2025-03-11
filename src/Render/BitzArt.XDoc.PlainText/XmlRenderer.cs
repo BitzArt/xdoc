@@ -1,14 +1,15 @@
 using System.Text;
 using System.Xml;
 using BitzArt.XDoc;
+using BitzArt.XDoc.PlainText;
 
-namespace Xdoc.Renderer.PlainText;
+namespace BitzArt.XDoc.PlainText;
 
 /// <summary>
 /// Renders XML documentation to plain text.
 /// <seealso href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/xml-documentation-comments">Microsoft specification</seealso>
 /// </summary>
-public class XmlRenderer
+public class XmlRenderer : IXmlToPlainTextRenderer
 {
     /// <summary>
     /// Converts an XML documentation node to the plain text.
