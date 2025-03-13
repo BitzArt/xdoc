@@ -1,6 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 using TestAssembly.B;
-using Xunit;
 
 namespace BitzArt.XDoc.Extensions.Tests;
 
@@ -34,14 +33,27 @@ public class XDocExtensionTests
         // Act
         var xdoc = serviceProvider.GetRequiredService<XDoc>();
 
+        // Assert
+        Assert.NotNull(xdoc);
+        Assert.IsType<XDoc>(xdoc);
+    }
+
+    [Fact]
+    public void Get_CanGetProperty()
+    {
+        // Arrange
+        var services = new ServiceCollection();
+        services.AddXDoc();
+        var serviceProvider = services.BuildServiceProvider();
+
+        // Act
+        var xdoc = serviceProvider.GetRequiredService<XDoc>();
+
         var typeDocumentation = xdoc.Get(typeof(Dog));
         var propertyDocumentation = xdoc.Get(typeof(Dog).GetProperty(nameof(Dog.Property1)));
 
         // Assert
-        Assert.NotNull(xdoc);
         Assert.NotNull(typeDocumentation);
         Assert.NotNull(propertyDocumentation);
-        
-        Assert.IsType<XDoc>(xdoc);
     }
 }

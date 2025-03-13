@@ -1,9 +1,8 @@
-using BitzArt.XDoc.PlainText;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace BitzArt.XDoc.EntityFrameworkCore;
+namespace BitzArt.XDoc;
 
 /// <summary>
 /// Configures XML documentation comments for Entity Framework Core entities and their properties.
@@ -54,7 +53,7 @@ public class EntitiesCommentConfigurator
 
                 if (isShadowProperty)
                 {
-                    _logger.LogInformation($"Skipping shadow property [Name: {property.Name}]");
+                    _logger.LogDebug($"Skipping shadow property [Name: {property.Name}]");
 
                     continue;
                 }

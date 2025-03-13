@@ -1,8 +1,7 @@
 using System.Xml;
-using BitzArt.XDoc.PlainText;
 using TestAssembly.B;
 
-namespace BitzArt.XDoc.PlaintText.Tests;
+namespace BitzArt.XDoc.Tests;
 
 public class PlainTextRendererTests
 {
@@ -12,20 +11,17 @@ public class PlainTextRendererTests
         // Arrange
         var xml = @"<member name=""P:MyCompany.Library.WeeklyMetrics.SuccessRatio"">
                         <summary>
-                            The ratio of <see cref=""P:MyCompany.Library.WeeklyMetrics.Progress""/> to  <see cref=""P:MyCompany.Library.WeeklyMetrics.Objective""/> for this <see cref=""T:MyCompany.Library.WeeklyMetric""/>.
+                            The ratio of <see cref=""P:MyCompany.Library.WeeklyMetrics.Progress""/> to <see cref=""P:MyCompany.Library.WeeklyMetrics.Objective""/> for this <see cref=""T:MyCompany.Library.WeeklyMetric""/>.
                         </summary>
                     </member>";
 
         var xmlNode = GetXmlNode(xml);
         
         // Act
-        var source = new XDoc();
-        MemberDocumentation documentation = new TypeDocumentation(source, typeof(object), xmlNode);
-
-        var str = PlainTextRenderer.Render(documentation);
+        var str = PlainTextRenderer.Render(xmlNode!);
 
         // Assert
-        Assert.Contains("The ratio of Progress to  Objective for this WeeklyMetric.", str);
+        Assert.Contains("The ratio of Progress to Objective for this WeeklyMetric.", str);
     }
     
     

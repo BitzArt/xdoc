@@ -6,7 +6,8 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
-        <TargetFrameworks>net9.0;net8.0</TargetFrameworks>
+        <TargetFramework>net9.0</TargetFramework>
+		<RootNamespace>BitzArt.XDoc.Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

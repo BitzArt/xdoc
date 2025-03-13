@@ -1,7 +1,7 @@
 using System.Text;
 using System.Xml;
 
-namespace BitzArt.XDoc.PlainText;
+namespace BitzArt.XDoc;
 
 /// <summary>
 /// Lightweight XML renderer that converts XML documentation to plain text.
@@ -25,12 +25,24 @@ public class PlainTextRenderer
             ? documentation.Inherited.RequirementNode
             : documentation.Node;
 
-        var text = Render(xmlNode);
-
-        var result = Normalize(text);
+        var result = Render(xmlNode);
 
         return result;
     }
+
+    /// <summary>
+    /// Renders the content of an XML node to plain text.
+    /// </summary>
+    /// <param name="node"></param>
+    /// <returns></returns>
+    internal static string Render(XmlNode? node)
+        => Normalize(node switch
+    {
+        null => string.Empty,
+        XmlText textNode => RenderTextNode(textNode),
+        XmlElement element => RenderXmlElement(element),
+        _ => node.InnerText
+    });
 
     /// <summary>
     /// Normalize the input string by removing extra empty lines and trimming each line.
@@ -51,31 +63,6 @@ public class PlainTextRenderer
         var result = string.Join("\n", lines);
 
         return result;
-    }
-
-    /// <summary>
-    /// Renders the content of an XML node to plain text.
-    /// </summary>
-    /// <param name="node"></param>
-    /// <returns></returns>
-    private static string Render(XmlNode? node)
-    {
-        if (node == null)
-        {
-            return string.Empty;
-        }
-
-        if (node is XmlText textNode)
-        {
-            return RenderTextNode(textNode);
-        }
-
-        if (node is XmlElement element)
-        {
-            return RenderXmlElement(element);
-        }
-
-        return node.InnerText;
     }
 
     /// <summary>

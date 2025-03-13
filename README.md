@@ -1,4 +1,9 @@
-# XDoc.NET
+![Tests](https://github.com/BitzArt/XDoc.NET/actions/workflows/Tests.yml/badge.svg)
+
+[![NuGet version](https://img.shields.io/nuget/v/BitzArt.XDoc.svg)](https://www.nuget.org/packages/BitzArt.XDoc/)
+[![NuGet downloads](https://img.shields.io/nuget/dt/BitzArt.XDoc.svg)](https://www.nuget.org/packages/BitzArt.XDoc/)
+
+# Overview
 
 A lightweight and efficient tool for parsing, and managing C# XML documentation comments.
 

@@ -1,8 +1,7 @@
-using BitzArt.XDoc.PlainText;
 using TestAssembly.A;
 using TestAssembly.B;
 
-namespace BitzArt.XDoc.PlaintText.Tests;
+namespace BitzArt.XDoc.Tests;
 
 public class XDocExtensionsTests
 {

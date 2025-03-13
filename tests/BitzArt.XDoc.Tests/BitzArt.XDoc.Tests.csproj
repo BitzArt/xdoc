@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <ImplicitUsings>enable</ImplicitUsings>
@@ -6,15 +6,8 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
-        <TargetFrameworks>net9.0;net8.0</TargetFrameworks>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <DocumentationFile>bin\Debug\BitzArt.XDoc.Tests.xml</DocumentationFile>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <DocumentationFile>bin\Release\BitzArt.XDoc.Tests.xml</DocumentationFile>
+        <TargetFramework>net9.0</TargetFramework>
+		<RootNamespace>BitzArt.XDoc.Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<RootNamespace>BitzArt.XDoc</RootNamespace>
+
+		<PackageId>BitzArt.XDoc.EntityFrameworkCore</PackageId>
+		<Authors>BitzArt</Authors>
+		<Description>Extension library that bridges XML documentation comments from C# code to Entity Framework Core database objects.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/BitzArt/xdoc</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/BitzArt/xdoc</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIcon>xdoc-logo.png</PackageIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\assets\xdoc-logo.png" Pack="True" Visible="false" PackagePath="\" />
+		<None Include="..\..\..\README.md" Pack="True" Visible="false" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="JetBrains.Annotations" Version="2024.3.0" PrivateAssets="All"/>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2"/>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.2"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\BitzArt.XDoc\BitzArt.XDoc.csproj"/>
+		<ProjectReference Include="..\..\Render\BitzArt.XDoc.PlainText\BitzArt.XDoc.PlainText.csproj"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+			<_Parameter1>BitzArt.XDoc.EntityFrameworkCore.Tests</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
+
+</Project>
